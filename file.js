@@ -9,8 +9,16 @@ $(document).ready(function(){
         audio.get(0).play(); 
 
         displayAudioId.text(drumPadId.toString() + " " + "is playing").css("color" , "red");
-    });
 
-    
+       
+    });
+    $(document).keydown(function(event) {
+        var keyPressed = String.fromCharCode(event.keyCode);
+        var drumPad = $('#' + keyPressed + '.drum-pad');
+        
+        if (drumPad.length > 0) {
+          drumPad.trigger('click');
+        }
+      });
 
 });
